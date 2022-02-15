@@ -43,6 +43,6 @@ public class WorldCurver : MonoBehaviour
 			yield return null;
 		}
 		Shader.SetGlobalFloat(curveId, nextCurve);
-		StartCoroutine(PerformVerticalCurve(curveId, valueBounds, ttlBounds, nextCurve));
+		yield return StartCoroutine(PerformVerticalCurve(curveId, valueBounds, ttlBounds, nextCurve));
 	}
 }

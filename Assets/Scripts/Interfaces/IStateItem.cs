@@ -6,6 +6,6 @@ public interface IStateItem
 	void AddTransition(string name, IStateItem newState);
 	void Enter();
 	void Update();
-	void OnTriggerEnter(Collider other);
+	void OnMove(Vector2 move);
 	void Exit();
 }

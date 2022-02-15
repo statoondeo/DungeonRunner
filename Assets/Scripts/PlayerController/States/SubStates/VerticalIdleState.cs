@@ -1,49 +1,45 @@
 ﻿using UnityEngine;
-public class VerticalIdleState : BaseSubPlayerControllerStateItem
-{
-	protected CharacterController CharacterController;
-	protected Position Movement;
-	protected float Gravity;
 
-	public VerticalIdleState(IStateContainer container, Animator animator, CharacterController characterController, Position movement, float gravity)
-		: base(container, animator)
+public class VerticalIdleState : BasePlayerControllerState
+{
+	public VerticalIdleState(IStateContainer container, PlayerModel playerModel, PlayerView playerView)
+		: base(container, playerModel, playerView)
 	{
-		CharacterController = characterController;
-		Movement = movement;
-		Gravity = gravity;
 	}
 
 	public override void Enter()
 	{
 		base.Enter();
-		Animator.SetTrigger(PlayerCharacterAnimationTriggers.Run);
-		Movement.Y = 0;
+		PlayerView.Animator.SetTrigger(PlayerAnimationTriggers.Run);
+		PlayerModel.NextMove.y = 0;
 	}
 
 	public override void Update()
 	{
 		base.Update();
-		if (CharacterController.isGrounded)
+		if (!PlayerView.CharacterController.isGrounded) // && !GameManager.Instance.CurrentScene.IsPaused)
 		{
-			float vMove = Input.GetAxis("Vertical");
-			if (vMove > 0)
-			{
-				// Gestion du saut
-				Container.SetState(Transitions[VerticalSubStates.Jump]);
-			}
-			else if (vMove < 0)
-			{
-				// Gestion de la glissade
-				Container.SetState(Transitions[VerticalSubStates.Slide]);
-			}
-			else
-			{
-				Movement.Y = 0.0f;
-			}
+			PlayerModel.NextMove.y += PlayerModel.Gravity * Time.deltaTime;
 		}
-		else
-		{
-			Movement.Y += Gravity * Time.deltaTime;
-		}
+	}
+
+	public override void OnMove(Vector2 move)
+	{
+		//if (!GameManager.Instance.CurrentScene.IsPaused) {
+			base.OnMove(move);
+			if (PlayerView.CharacterController.isGrounded)
+			{
+				if (move == Vector2.up)
+				{
+					// Gestion du saut
+					Container.SetState(Transitions[VerticalSubStates.Jump]);
+				}
+				else if (move == Vector2.down)
+				{
+					// Gestion de la glissade
+					Container.SetState(Transitions[VerticalSubStates.Slide]);
+				}
+			}
+		//}
 	}
 }

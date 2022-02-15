@@ -1,4 +1,4 @@
-﻿public static class PlayerCharacterControllerStates
+﻿public static class PlayerControllerStates
 {
 	public static readonly string Idle = "Idle";
 	public static readonly string Running = "Running";

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71d85abbd55ce24991c2f3a6dac54fb, type: 3}
+  m_Name: GroundModel
+  m_EditorClassIdentifier: 
+  BoostStart: 2
+  BoostStep: 2
+  ActiveGrounds: 6
+  GroundModels:
+  - {fileID: -9095039386500621971, guid: 7ad8945b3a644e54a89be7f17b6e8a20, type: 3}
+  - {fileID: -9095039386500621971, guid: 0424fe9fde0a3be4ea4f01453fc9b5ab, type: 3}
+  - {fileID: -9095039386500621971, guid: 2dbb95f8098ef984c881ca168a9aaad3, type: 3}
+  - {fileID: -9095039386500621971, guid: ef08aec10a2d09f439e99f2f188be456, type: 3}
+  - {fileID: -9095039386500621971, guid: a30acc0b01dead54fb1ef42c28863122, type: 3}
+  - {fileID: -9095039386500621971, guid: 7520b24dae469fe41a8d639b0a4d40a6, type: 3}
+  - {fileID: -9095039386500621971, guid: 1b798ec2b89a3e14b8ff0b38e6f22dc8, type: 3}
+  - {fileID: -9095039386500621971, guid: 6cc4385165af18545ac2929b4ca465da, type: 3}
+  - {fileID: -9095039386500621971, guid: 94bf107f6d4db384581926bbcaceab62, type: 3}
+  - {fileID: -9095039386500621971, guid: 9aaa6fc4ea1156341ad32a8396bbf014, type: 3}
+  - {fileID: -9095039386500621971, guid: b68fd22fcc5687f4396766150e6a1613, type: 3}
+  - {fileID: -9095039386500621971, guid: df0d1e0d2380e404fb14abe0b325f5d9, type: 3}
+  - {fileID: -9095039386500621971, guid: ca50b039767b95a42bf286c80a9ebcfb, type: 3}
+  - {fileID: -9095039386500621971, guid: c28c29b68e567764b89b34850f6e25d7, type: 3}
+  - {fileID: -9095039386500621971, guid: 337b80e7da240fb4ea9fd42d44e65627, type: 3}
+  - {fileID: -9095039386500621971, guid: 44efd79b7bd64e443879997e2f84dad4, type: 3}
+  - {fileID: -9095039386500621971, guid: 351c81a2ed359ec4eb98ff8f6a3d8a34, type: 3}
+  - {fileID: -9095039386500621971, guid: c689f3042e16e6a4cad82e61065d2959, type: 3}
+  TransitionModels:
+  - {fileID: -9095039386500621971, guid: 2c0bf0d786f9c6f45b99758cc83af706, type: 3}
+  - {fileID: -9095039386500621971, guid: 4cef4ba90f5271549bf1e5e7d757c7a2, type: 3}
+  - {fileID: -9095039386500621971, guid: 6bb93d0d3d5176a4a8c1d5ddbc12a0fb, type: 3}
+  - {fileID: -9095039386500621971, guid: 510b6b4f7a54acc448c63f530c3f8438, type: 3}

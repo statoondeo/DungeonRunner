@@ -9,14 +9,10 @@ public class Waypoint : MonoBehaviour
 
 	private void Awake()
 	{
+		SentryCollider = Sentry.GetComponent<Collider>();
 		Debug.Assert(Sentry != null, gameObject.name + "/Sentry not set");
 		Debug.Assert(Target != null, gameObject.name + "/Target not set");
 		Debug.Assert(SentryCollider != null, gameObject.name + "/SentryCollider not set");
-	}
-
-	private void Start()
-    {
-		SentryCollider = Sentry.GetComponent<Collider>();
 	}
 
 	private void OnTriggerEnter(Collider other)

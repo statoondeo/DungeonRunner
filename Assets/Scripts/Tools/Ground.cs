@@ -6,20 +6,29 @@ using UnityEngine;
 /// </summary>
 public class Ground : MonoBehaviour
 {
-    [SerializeField] private GameObject CoinContainer;
+    /// <summary>
+    /// Objet fils contenant les collectables
+    /// </summary>
+    [SerializeField] private GameObject CollectablesContainer;
+
+    /// <summary>
+    /// Longueur du terrain (pour son recyclage par le GroundGenerator)
+    /// </summary>
+    public float Length;
 
     /// <summary>
     /// Liste des collectables du terrain qui seront activés/désactivés
     /// pour éviter de les instancier à chaque apparatition du terrain
     /// </summary>
-    private IList<GameObject> Coins;
+    private IList<GameObject> Collectables;
 
     /// <summary>
     /// Création du container de collectables
     /// </summary>
 	private void Awake()
 	{
-        Coins = new List<GameObject>();
+        Debug.Assert(CollectablesContainer != null, gameObject.name + "/CollectablesContainer not set");
+        Collectables = new List<GameObject>();
     }
 
     /// <summary>
@@ -27,31 +36,38 @@ public class Ground : MonoBehaviour
     /// </summary>
 	private void Start()
 	{
-		for (int i = 0; i < CoinContainer.transform.childCount; i++)
+		foreach (Transform child in CollectablesContainer.transform)
 		{
-            Coins.Add(CoinContainer.transform.GetChild(i).gameObject);
+            Collectables.Add(child.gameObject);
 		}
-	}
+        Init();
+    }
 
     /// <summary>
     /// Quand le terrain est activé, on active tous les collectables qu'il contient
     /// </summary>
     private void OnEnable()
 	{
-		foreach(GameObject coin in Coins)
-		{
-            coin.SetActive(true);
-		}
-	}
+        Init();
+    }
 
     /// <summary>
     /// Quand le terrain est désactivé, on désactive tous les collectables qu'il contient
     /// </summary>
 	private void OnDisable()
 	{
-        foreach (GameObject coin in Coins)
+        foreach (GameObject coin in Collectables)
         {
             coin.SetActive(false);
+        }
+    }
+
+	public void Init()
+	{
+        foreach (GameObject coin in Collectables)
+        {
+            coin.SetActive(true);
+            coin.transform.rotation = transform.rotation;
         }
     }
 }

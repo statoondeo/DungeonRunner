@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class StateContainer : IStateContainer
 {
 	public IStateItem State { get; protected set; }
@@ -14,5 +16,10 @@ public class StateContainer : IStateContainer
 	public void Update()
 	{
 		State.Update();
+	}
+
+	public void OnMove(Vector2 move)
+	{
+		State.OnMove(move);
 	}
 }

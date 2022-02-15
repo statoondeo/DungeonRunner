@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,71 +7,39 @@ using UnityEngine.UI;
 public class InGameUI : MonoBehaviour
 {
     [SerializeField] private Text ScoreText;
+    [SerializeField] private Text SpeedText;
     [SerializeField] private Text BestScoreText;
-    [SerializeField] private Text CoinText;
-    [SerializeField] private Text CollisionAlertText;
-    [SerializeField] private float CollisionAlertTtl;
 
-    private float BestScore;
+    private int BestScore;
 
 	private void Awake()
 	{
-        Debug.Assert(ScoreText != null, gameObject.name + "/ScoreText not set");
-        Debug.Assert(BestScoreText != null, gameObject.name + "/BestScoreText not set");
-        Debug.Assert(CoinText != null, gameObject.name + "/CoinText not set");
-        Debug.Assert(CollisionAlertText != null, gameObject.name + "/CollisionAlertText not set");
-        Debug.Assert(CollisionAlertTtl != 0, gameObject.name + "/CollisionAlertTtl not set");
-    }
-
-    private void Start()
-    {
-        BestScore = GameManager.Instance.MaxScore;
-        BestScoreText.text = "Meilleur : " + (int)BestScore;
+        if (null == ScoreText) throw new System.ArgumentNullException("ScoreText is missing!");
+        if (null == SpeedText) throw new System.ArgumentNullException("SpeedText is missing!");
+        if (null == BestScoreText) throw new System.ArgumentNullException("BestScoreText is missing!");
     }
 
     /// <summary>
     /// Affichage du score
     /// </summary>
-    public void SetScore(float score)
+    public void OnScoreChanged(PlayerModel playerModel)
     {
-        ScoreText.text = "Score : " + (int)score;
-        if (score >= BestScore)
-        {
-            BestScoreText.text = "Meilleur : " + (int)score;
-        }
+        ScoreText.text = playerModel.Score.ToString();
     }
 
     /// <summary>
-    /// Affichage du compteur de collectables
+    /// Affichage du meilleur score
     /// </summary>
-    public void SetCoin(float score)
+    public void OnBestScoreChanged(GameplayModel gameplayModel)
     {
-        CoinText.text = "Pièces : " + (int)score;
+        BestScoreText.text = gameplayModel.MaxScore.ToString();
     }
 
     /// <summary>
-    /// Affichage d'une alerte indiquant que le joueur a été touché par un obstacle
+    /// Affichage du score
     /// </summary>
-    public void SetCollisionAlert()
+    public void OnSpeedChanged(PlayerModel playerModel)
     {
-        StartCoroutine(ShowAlert(CollisionAlertText.gameObject, CollisionAlertTtl));
-    }
-
-    /// <summary>
-    /// Affichae d'une alerte dans l'UI
-    /// </summary>
-    /// <param name="gameObject">GameObject contenant les éléments de l'alerte</param>
-    /// <param name="duration">Durée d'affichage de l'alerte</param>
-    /// <returns></returns>
-    private IEnumerator ShowAlert(GameObject gameObject, float duration)
-    {
-        float currentTtl = 0;
-        gameObject.SetActive(true);
-        while (currentTtl < duration)
-		{
-            currentTtl += Time.deltaTime;
-            yield return null;
-        }
-        gameObject.SetActive(false);
+        SpeedText.text = playerModel.Speed.ToString();
     }
 }

@@ -1,31 +1,33 @@
-﻿using UnityEngine;
+﻿//using UnityEngine;
 
-public class PlayerCharacterControllerIdleState : BasePlayerCharacterControllerState
-{
-	protected bool Active;
-	protected Position Movement;
+//public class PlayerCharacterControllerIdleState : BasePlayerCharacterControllerState
+//{
+//	protected bool Active;
+//	protected Position Movement;
+//	protected bool TransitionRequired;
 
-	public PlayerCharacterControllerIdleState(IStateContainer container, Animator animator, bool active, Position movement)
-		: base(container, animator)
-	{
-		Active = active;
-		Movement = movement;
-	}
+//	public PlayerCharacterControllerIdleState(IStateContainer container, Animator animator, bool active, Position movement)
+//		: base(container, animator)
+//	{
+//		Active = active;
+//		Movement = movement;
+//		TransitionRequired = false;
+//	}
 
-	public override void Enter()
-	{
-		base.Enter();
-		Animator.ResetTrigger(PlayerCharacterAnimationTriggers.Run);
-		Animator.SetTrigger(PlayerCharacterAnimationTriggers.Idle);
-		Movement.Z = 0;
-	}
+//	public override void Enter()
+//	{
+//		base.Enter();
+//		Animator.ResetTrigger(PlayerCharacterAnimationTriggers.Run);
+//		Animator.SetTrigger(PlayerCharacterAnimationTriggers.Idle);
+//		Movement.Z = 0;
+//	}
 
-	public override void Update()
-	{
-		base.Update();
-		if (Active && Input.GetButton("Fire1"))
-		{
-			Container.SetState(Transitions[PlayerCharacterControllerStates.Running]);
-		}
-	}
-}
+//	public override void OnMove(InputController inputController)
+//	{
+//		if (!GameManager.Instance.CurrentScene.IsPaused)
+//		{
+//			base.OnMove(inputController);
+//			Container.SetState(Transitions[PlayerCharacterControllerStates.Running]);
+//		}
+//	}
+//}

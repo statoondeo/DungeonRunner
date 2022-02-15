@@ -4,23 +4,23 @@
 /// Classe permettant de faire du pooling de GameObject
 /// Pour éviter les instanciation en cours de jeu
 /// </summary>
-public class ObjectPool
+public class ObjectPool<T> where T : Component
 {
 	protected GameObject Model;
-	protected GameObject[] GameObjects;
+	protected T[] Objects;
 	protected int CurrentIndex;
 	public int Capacity { get; protected set; }
 
 	public ObjectPool(GameObject model, int capacity, Transform parentObject)
 	{
 		Capacity = capacity;
-		GameObjects = new GameObject[Capacity];
+		Objects = new T[Capacity];
 		Model = model;
 		for (int i = 0; i < Capacity; i++)
 		{
-			GameObjects[i] = GameObject.Instantiate(Model);
-			GameObjects[i].SetActive(false);
-			GameObjects[i].transform.parent = parentObject;
+			Objects[i] = GameObject.Instantiate(Model).GetComponent<T>();
+			Objects[i].gameObject.SetActive (false);
+			Objects[i].transform.parent = parentObject;
 		}
 		CurrentIndex = 0;
 	}
@@ -29,14 +29,14 @@ public class ObjectPool
 	{
 		for (int i = 0; i < Capacity; i++)
 		{
-			GameObjects[i].SetActive(false);
+			Objects[i].gameObject.SetActive(false);
 		}
 	}
 
-	public GameObject Get()
+	public T Get()
 	{
 		int read = 0;
-		while (GameObjects[CurrentIndex].activeSelf && read < Capacity)
+		while (Objects[CurrentIndex].gameObject.activeSelf && read < Capacity)
 		{
 			read++;
 			CurrentIndex++;
@@ -46,11 +46,11 @@ public class ObjectPool
 		{
 			// Pool mal dimensionné
 			Debug.Log("Pool mal dimensionné!");
-			return (GameObject.Instantiate(Model));
+			return (GameObject.Instantiate(Model).GetComponent<T>());
 		}
 		else
 		{
-			return (GameObjects[CurrentIndex]);
+			return (Objects[CurrentIndex]);
 		}
 	}
 }

@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2035728733816682711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2035728733816682710}
+  - component: {fileID: 2035728733816682729}
+  m_Layer: 0
+  m_Name: Environment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2035728733816682710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035728733816682711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2035728733816682729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035728733816682711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f903afd34b54244d962455d4fa448bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  GroundModels:
+  - {fileID: -9095039386500621971, guid: 7ad8945b3a644e54a89be7f17b6e8a20, type: 3}
+  - {fileID: -9095039386500621971, guid: 0424fe9fde0a3be4ea4f01453fc9b5ab, type: 3}
+  - {fileID: -9095039386500621971, guid: 2dbb95f8098ef984c881ca168a9aaad3, type: 3}
+  - {fileID: -9095039386500621971, guid: ef08aec10a2d09f439e99f2f188be456, type: 3}
+  - {fileID: -9095039386500621971, guid: a30acc0b01dead54fb1ef42c28863122, type: 3}
+  MaxActiveGrounds: 4
+  TransitionModels:
+  - {fileID: -9095039386500621971, guid: 2c0bf0d786f9c6f45b99758cc83af706, type: 3}
+  - {fileID: -9095039386500621971, guid: 4cef4ba90f5271549bf1e5e7d757c7a2, type: 3}
+  - {fileID: -9095039386500621971, guid: 6bb93d0d3d5176a4a8c1d5ddbc12a0fb, type: 3}
+  - {fileID: -9095039386500621971, guid: 510b6b4f7a54acc448c63f530c3f8438, type: 3}
+  MaxActiveTransitions: 2

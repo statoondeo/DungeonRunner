@@ -4,7 +4,7 @@
 /// Classe permettant de gérer un script sous forme de singleton
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
+public class Singleton<T> : MonoBehaviour where T : Component
 {
 	private static T mInstance;
 	public static T Instance
@@ -28,5 +28,6 @@ public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
 	private void Awake()
 	{
 		mInstance = this as T;
+		DontDestroyOnLoad(gameObject);
 	}
 }

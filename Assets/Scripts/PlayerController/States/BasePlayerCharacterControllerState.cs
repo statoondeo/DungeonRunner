@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+﻿//using UnityEngine;
 
-public abstract class BasePlayerCharacterControllerState : StateItem
-{
-	protected Animator Animator;
+//public abstract class BasePlayerCharacterControllerState : StateItem
+//{
+//	protected Animator Animator;
 
-	protected BasePlayerCharacterControllerState(IStateContainer container, Animator animator)
-		: base(container)
-	{
-		Animator = animator;
-	}
-}
+//	protected BasePlayerCharacterControllerState(IStateContainer container, Animator animator)
+//		: base(container)
+//	{
+//		Animator = animator;
+//	}
+//}

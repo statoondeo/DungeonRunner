@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1649b90f968ae964eb45cbcaa1d6ddb6, type: 3}
+  m_Name: PlayerSound
+  m_EditorClassIdentifier: 
+  RunningSound: {fileID: 8300000, guid: 69ad9657b50800b4bb6657314e140d61, type: 3}
+  JumpingSound: {fileID: 8300000, guid: 9f8e8969d7477d041bfffae2b86ad655, type: 3}
+  SlidingSound: {fileID: 8300000, guid: e23a5fedfe7ca874e87f406e5803f855, type: 3}
+  DyingSound: {fileID: 8300000, guid: 3b2eb8a492c22894cabaa67421b05ecf, type: 3}

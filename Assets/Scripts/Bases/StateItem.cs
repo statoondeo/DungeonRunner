@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class StateItem : IStateItem
@@ -24,6 +23,7 @@ public class StateItem : IStateItem
 	{
 		Transitions.Add(name, newState);
 	}
+	public virtual void OnMove(Vector2 move) { }
 
 	public virtual void OnTriggerEnter(Collider other) { }
 }

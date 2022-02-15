@@ -18,7 +18,7 @@ public class MenuController : MonoBehaviour
 	private void Start()
 	{
 		GameManager.Instance.MaxScore = PlayerPrefs.GetInt("MaxScore");
-		LevelBestScoreLoader.text = "Meilleur score : " + GameManager.Instance.MaxScore;
+		LevelBestScoreLoader.text = GameManager.Instance.MaxScore.ToString();
 	}
 
 	/// <summary>
